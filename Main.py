@@ -2,12 +2,12 @@ class Node:
   def __init__(self, data):
     self.data = data
     self.next = None
-    self.top=None
+#     self.top=None
 
 class Stack:
   def __init__(self):
-    self.head = None
-
+    self.top = None
+    #self.top=None
   def push(self, data) -> None:
     # Write your code here
     new=Node(data)
@@ -21,8 +21,10 @@ class Stack:
     else:
       #temp=Node(data)
       temp=self.top
-      return temp
       self.top=self.top.next
+      temp.next=None
+      return temp
+      
       
   def status(self):
     """
@@ -35,10 +37,11 @@ class Stack:
       #ptr=Node(data)
       ptr=self.top
       while(ptr!=None):
-        print(ptr,"=>",end="")
+        print(ptr.data,end="")
+        print("=>",end="")
         ptr=ptr.next
-      else:
-        print("None")
+        if(ptr==None):
+          print("None")
 # Do not change the following code
 stack = Stack()
 operations = []
